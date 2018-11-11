@@ -4,10 +4,25 @@ import AppBar from 'material-ui/AppBar';
 import { List, ListItem } from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 
-export class FormUserDetails extends Component {
+export class Confirm extends Component {
+    
   continue = e => {
     e.preventDefault();
-    // PROCESS FORM //
+    let title = this.props.values.firstName; 
+    let body = this.props.values.lastName;
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method : 'POST', 
+      headers: {'Accept': 'application/json, text/plain, */*',
+                'Content-type': 'application/json' }, 
+      body: JSON.stringify({title: title, body: body}) 
+      
+    })
+    .then(function(res){
+      return res.json(); 
+    })
+    .then(function(data){
+      console.log(data);
+    })
     this.props.nextStep();
   };
 

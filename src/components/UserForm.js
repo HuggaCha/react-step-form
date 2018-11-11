@@ -40,6 +40,7 @@ export class UserForm extends Component {
     const { step } = this.state;
     const { firstName, lastName, email, occupation, city, bio } = this.state;
     const values = { firstName, lastName, email, occupation, city, bio };
+    
 
     switch (step) {
       case 1:
