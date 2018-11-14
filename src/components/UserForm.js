@@ -3,6 +3,7 @@ import FormUserDetails from './FormUserDetails';
 import FormPersonalDetails from './FormPersonalDetails';
 import Confirm from './Confirm';
 import Success from './Success';
+import UserWelcom from './UserWelcom';
 
 export class UserForm extends Component {
   state = {
@@ -43,15 +44,23 @@ export class UserForm extends Component {
     
 
     switch (step) {
-      case 1:
+      case 1: 
+        return (
+          <UserWelcom
+            nextStep = {this.nextStep} 
+            prevStep = {this.prevStep}
+            /> 
+            );
+      case 2:
         return (
           <FormUserDetails
             nextStep={this.nextStep}
+            prevStep = {this.prevStep}
             handleChange={this.handleChange}
             values={values}
           />
         );
-      case 2:
+      case 3:
         return (
           <FormPersonalDetails
             nextStep={this.nextStep}
@@ -60,7 +69,7 @@ export class UserForm extends Component {
             values={values}
           />
         );
-      case 3:
+      case 4:
         return (
           <Confirm
             nextStep={this.nextStep}
@@ -68,7 +77,7 @@ export class UserForm extends Component {
             values={values}
           />
         );
-      case 4:
+      case 5:
         return <Success />;
     }
   }

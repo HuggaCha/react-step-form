@@ -10,6 +10,11 @@ export class FormUserDetails extends Component {
     this.props.nextStep();
   };
 
+  back = e => {
+    e.preventDefault();
+    this.props.prevStep();
+  };
+
   render() {
     const { values, handleChange } = this.props;
     return (
@@ -42,6 +47,12 @@ export class FormUserDetails extends Component {
             primary={true}
             style={styles.button}
             onClick={this.continue}
+          />
+           <RaisedButton
+            label="Back"
+            primary={false}
+            style={styles.button}
+            onClick={this.back}
           />
         </React.Fragment>
       </MuiThemeProvider>
