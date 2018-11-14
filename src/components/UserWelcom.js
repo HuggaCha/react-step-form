@@ -24,6 +24,7 @@ render(){
             <TextField
             hintText="Your password"
             floatingLabelText="password"
+            type="password"
             /><br/> 
            <RaisedButton 
             label="Submit"
